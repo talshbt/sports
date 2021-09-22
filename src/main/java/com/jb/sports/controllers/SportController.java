@@ -1,6 +1,7 @@
 package com.jb.sports.controllers;
 
 import com.jb.sports.beans.Team;
+import com.jb.sports.exceptions.SportSystemException;
 import com.jb.sports.services.SportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,8 @@ public class SportController {
     }
 
     @GetMapping("teams/{id}")
-    public List<Team> getAllTeams(@PathVariable long id){
-        return sportService.getAllTeams();
+    public Team getAllTeams(@PathVariable long id) throws SportSystemException {
+        return sportService.getTeamById(id);
     }
 
 
