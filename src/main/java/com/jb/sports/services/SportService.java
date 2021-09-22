@@ -8,4 +8,6 @@ public interface SportService {
 
     void addTeam(Team team);
     List<Team> getAllTeams();
+    List<Team> getAllTeams(long teamId);
+
 }

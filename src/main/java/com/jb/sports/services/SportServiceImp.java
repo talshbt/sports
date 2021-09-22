@@ -20,4 +20,11 @@ public class SportServiceImp implements SportService{
     public List<Team> getAllTeams() {
         return teamRepository.findAll();
     }
+
+    @Override
+    public List<Team> getAllTeams(long teamId) {
+        return teamRepository.findById(teamId);
+    }
+
+
 }

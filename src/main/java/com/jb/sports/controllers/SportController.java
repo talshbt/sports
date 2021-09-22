@@ -21,9 +21,11 @@ public class SportController {
         sportService.addTeam(team);
     }
 
-    @GetMapping("teams")
-    public List<Team> getAllTeams(){
+    @GetMapping("teams/{id}")
+    public List<Team> getAllTeams(@PathVariable long id){
         return sportService.getAllTeams();
     }
+
+
 
 }
