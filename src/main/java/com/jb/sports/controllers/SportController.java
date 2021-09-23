@@ -22,8 +22,14 @@ public class SportController {
         sportService.addTeam(team);
     }
 
+    @GetMapping("teams")
+    public List<Team> getAllTeams() throws SportSystemException {
+        return sportService.getAllTeams();
+    }
+
+
     @GetMapping("teams/{id}")
-    public Team getAllTeams(@PathVariable long id) throws SportSystemException {
+    public Team getAllTeamsById(@PathVariable long id) throws SportSystemException {
         return sportService.getTeamById(id);
     }
 

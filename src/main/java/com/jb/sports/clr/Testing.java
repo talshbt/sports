@@ -14,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Component
 @Order(1)
@@ -39,6 +41,9 @@ public class Testing implements CommandLineRunner {
         System.out.println("res of " + t1.getName() + "=" + res.getStatusCode().value());
        res = restTemplate.postForEntity(URL,t2,String.class);
         System.out.println("res of " + t2.getName() + "=" + res.getStatusCode().value());
+
+        //Get Teams
+        Arrays.stream(Objects.requireNonNull(restTemplate.getForEntity(URL, Team[].class).getBody())).collect(Collectors.toList()).forEach(System.out::println);
 
     }
 }
